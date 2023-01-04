@@ -78,20 +78,24 @@
             margin-top: 20px;
         }
 
-        .mybtn > button {
+        .mybtn>button {
             margin-right: 10px;
         }
     </style>
     <script>
-        function hey(){
-            alert('안녕!')
-        }
+        $(document).ready(function () {
+            fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
+                let number = data['temp']
+                $('#temp').text(number)
+            })
+        })
     </script>
 </head>
 
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
+        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
         <button onclick="hey()">영화 기록하기</button>
     </div>
     <div class="mypost">
@@ -102,14 +106,14 @@
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">별점</label>
             <select class="form-select" id="inputGroupSelect01">
-              <option selected>-- 선택하기 --</option>
-              <option value="1">⭐</option>
-              <option value="2">⭐⭐</option>
-              <option value="3">⭐⭐⭐</option>
-              <option value="3">⭐⭐⭐⭐</option>
-              <option value="3">⭐⭐⭐⭐⭐</option>
+                <option selected>-- 선택하기 --</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐⭐⭐</option>
             </select>
-          </div>
+        </div>
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
             <label for="floatingTextarea">코멘트</label>
@@ -174,5 +178,3 @@
 </body>
 
 </html>
-
-
