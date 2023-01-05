@@ -1,3 +1,7 @@
+from pymongo import MongoClient
+client = MongoClient('mongodb+srv://sparta:test@cluster0.li8phsg.mongodb.net/?retryWrites=true&w=majority')
+db = client.dbsparta
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -14,4 +18,9 @@ for tr in trs:
         title = a.text
         rank = tr.select_one('td:nth-child(1) > img')['alt']
         star = tr.select_one('td.point').text
-        print(rank,title,star)
+        doc = {
+            'title':title,
+            'rank':rank,
+            'star':star
+        }
+        db.movies.insert_one(doc)
