@@ -1,0 +1,33 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2707
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs26 \cf0 AKIAWCE7LN3P5HDJDJ7E\
+Q2uC9UuCMc9JCxXSd7e182aYsrbpFVzutToApsFz\
+\
+- \uc0\u53552 \u48120 \u45328  \u51456 \u48708 \u54616 \u44592  - \
+mkdir deploy\
+cp app.py deploy/application.py\
+cp -r templates deploy/templates\
+pip freeze > deploy/requirements.txt\
+cd deploy\
+\
+- appication.py \uc0\u49464 \u54021 \u54616 \u44592  - \
+application = app = Flask(__name__)\
+app.run()\
+\
+- \uc0\u54056 \u53412 \u51648  \u49444 \u52824 \u54616 \u44592  - \
+pip install awsebcli\
+\
+- \uc0\u48372 \u50504  \u51088 \u44201 \u51613 \u47749  - \
+eb init\
+\
+- \uc0\u52488 \u44592  \u49444 \u51221  - \
+eb create myweb\
+\
+- \uc0\u53076 \u46300  \u49688 \u51221  & \u50629 \u45936 \u51060 \u53944  - \
+eb deploy myweb}
